@@ -14,7 +14,7 @@ from mutagen.flac import FLAC
 from mutagen.flac import Picture
 from mutagen.oggvorbis import OggVorbis
 
-PERSONAL_MEDIA_IDENTIFIER = "com.plexapp.agents.none"
+PERSONAL_MEDIA_IDENTIFIER = "com.plexapp.agents.mylocalmedia"
 
 GENERIC_ARTIST_NAMES = ['various artists', '[unknown artist]', 'soundtrack', 'ost', 'original sound track', 'original soundtrack', 'original broadway cast']
 
@@ -50,7 +50,7 @@ def ReadTags(f):
 
 #####################################################################################################################
 
-class localMediaMovie(Agent.Movies):
+class myLocalMediaMovie(Agent.Movies):
   name = 'Local Media Assets (Movies)'
   languages = [Locale.Language.NoLanguage]
   primary_provider = False
@@ -100,7 +100,7 @@ def FindUniqueSubdirs(dirs):
     del final_dirs['']
   return final_dirs
 
-class localMediaTV(Agent.TV_Shows):
+class myLocalMediaTV(Agent.TV_Shows):
   name = 'Local Media Assets (TV)'
   languages = [Locale.Language.NoLanguage]
   primary_provider = False
@@ -170,7 +170,7 @@ class localMediaTV(Agent.TV_Shows):
 
 #####################################################################################################################
 
-class localMediaArtistCommon(object):
+class myLocalMediaArtistCommon(object):
   name = 'Local Media Assets (Artists)'
   languages = [Locale.Language.NoLanguage]
   primary_provider = False
@@ -279,14 +279,14 @@ class localMediaArtistCommon(object):
         metadata.extras.add(extra)
 
 
-class localMediaArtistLegacy(localMediaArtistCommon, Agent.Artist):
+class myLocalMediaArtistLegacy(myLocalMediaArtistCommon, Agent.Artist):
   contributes_to = ['com.plexapp.agents.discogs', 'com.plexapp.agents.lastfm', 'com.plexapp.agents.plexmusic', 'com.plexapp.agents.none', 'tv.plex.agents.music', 'org.musicbrainz.agents.music']
 
   def search(self, results, media, lang):
     results.Append(MetadataSearchResult(id = 'null', name=media.artist, score = 100))
 
 
-class localMediaArtistModern(localMediaArtistCommon, Agent.Artist):
+class myLocalMediaArtistModern(myLocalMediaArtistCommon, Agent.Artist):
   version = 2
   contributes_to = ['com.plexapp.agents.plexmusic']
 
@@ -294,10 +294,10 @@ class localMediaArtistModern(localMediaArtistCommon, Agent.Artist):
     results.add(SearchResult(id='null', type='artist', parentName=hints.artist, score=100))
 
   def update(self, metadata, media, lang='en', child_guid=None):
-    super(localMediaArtistModern, self).update(metadata, media, lang)
+    super(myLocalMediaArtistModern, self).update(metadata, media, lang)
 
 
-class localMediaAlbum(Agent.Album):
+class myLocalMediaAlbum(Agent.Album):
   name = 'Local Media Assets (Albums)'
   languages = [Locale.Language.NoLanguage]
   primary_provider = False
