@@ -125,15 +125,16 @@ class MP4VideoHelper(VideoHelper):
     except: pass
 
     # Country
+    # TODO: Update to support an array of countries, also update to support them being provided by Atom or XML
     try:
       countryname = tags["ctry"][0]
       if len(countryname) > 0:
-        item.country = countryname
+        item.countries = countryname
       else:
         try:
           countryname = tags["----:com.apple.iTunes:COUNTRY"][0]
           if len(countryname) > 0:
-            item.country = countryname
+            item.countries = countryname
         except: pass
     except: pass
 
