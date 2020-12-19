@@ -51,7 +51,7 @@ def ReadTags(f):
 #####################################################################################################################
 
 class myLocalMediaMovie(Agent.Movies):
-  name = 'Local Media Assets (Movies)'
+  name = 'My Local Media Assets (Movies)'
   languages = [Locale.Language.NoLanguage]
   primary_provider = False
   persist_stored_files = False
@@ -101,7 +101,7 @@ def FindUniqueSubdirs(dirs):
   return final_dirs
 
 class myLocalMediaTV(Agent.TV_Shows):
-  name = 'Local Media Assets (TV)'
+  name = 'My Local Media Assets (TV)'
   languages = [Locale.Language.NoLanguage]
   primary_provider = False
   persist_stored_files = False
@@ -171,7 +171,7 @@ class myLocalMediaTV(Agent.TV_Shows):
 #####################################################################################################################
 
 class myLocalMediaArtistCommon(object):
-  name = 'Local Media Assets (Artists)'
+  name = 'My Local Media Assets (Artists)'
   languages = [Locale.Language.NoLanguage]
   primary_provider = False
   persist_stored_files = False
@@ -298,7 +298,7 @@ class myLocalMediaArtistModern(myLocalMediaArtistCommon, Agent.Artist):
 
 
 class myLocalMediaAlbum(Agent.Album):
-  name = 'Local Media Assets (Albums)'
+  name = 'My Local Media Assets (Albums)'
   languages = [Locale.Language.NoLanguage]
   primary_provider = False
   persist_stored_files = False
