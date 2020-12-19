@@ -74,11 +74,12 @@ class MP4VideoHelper(VideoHelper):
       item.title_sort = title_sort
     except: pass
 
+    ## Reserved for a atom to be defined for Original Title/Filename content
     # Original Title
-    try:
-      original_title = tags["sonm"][0]
-      item.title_sort = title_sort
-    except: pass
+    #try:
+    #  original_title = tags["sonm"][0]
+    #  item.title_sort = title_sort
+    #except: pass
 
     # Summary (long or short)
     try:
@@ -125,9 +126,15 @@ class MP4VideoHelper(VideoHelper):
 
     # Country
     try:
-      country = tags["----:com.apple.iTunes:COUNTRY"][0]
-      if len(country) > 0:
-        item.tags_country = country
+      countryname = tags["ctry"][0]
+      if len(countryname) > 0:
+        item.tags_country = countryname
+      else:
+        try:
+          countryname = tags["----:com.apple.iTunes:COUNTRY"][0]
+          if len(countryname) > 0:
+            item.tags_country = countryname
+        except: pass
     except: pass
 
     # Original Title
@@ -227,7 +234,7 @@ class MP4VideoHelper(VideoHelper):
         pl_producers = []
         for producer in pl['producers']:
           producer_name = producer['name']
-          if writer_name:
+          if producer_name:
             pl_producers.append(producer_name)
         # if there are none-empty writer names present use them
         if pl_producers:

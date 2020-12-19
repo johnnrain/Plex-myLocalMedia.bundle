@@ -92,6 +92,7 @@ ATOM_TYPE_MAP = { '\xa9too': 'encoder',
                   'tves': 'tvepisode',
                   'purd': 'purcahsedate',
                   'pgap': 'gapless',
+                  'ctry': 'country',
                   }
 
 # There are a lot of atom's with children.  No need to create
