@@ -1,0 +1,96 @@
+<!-- 
+    SAVE ALL LINES BELOW THIS ONE INTO AN "ATOM" WITH THE FOLLOWING ATRIBUTES:
+        ATOM ID:  - - - - (Four Dashes NOT separated by spaces)
+        TYPE: 1
+        NAME: iTunMOVI
+        MEAN: com.apple.iTunes
+        CONTENT AS TEXT: paste the lines from the XML below starting with <?
+-->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!--Support for the photo and role attributes of each ast member are a work in progress-->
+    <!--But, getting them filled in now will save work once support is updated-->
+	<key>cast</key>
+	<array>
+		<dict>
+			<photo></photo>
+            <role>Husband</role>
+			<name>Actor 1</name>
+		</dict>
+		<dict>
+			<photo></photo>
+            <role>Wife</role>
+			<name>Actress 1</name>
+		</dict>
+	</array>
+	<!-- 
+        codirectors does not currently map in Plex under the myLocalMedia.bundle 
+        <key>codirectors</key>
+        <array>
+            <dict>
+                <key>name</key>
+                <string>Corbin Fisher</string>
+            </dict>
+        </array> 
+    -->
+    <!--Support for the photo and role attributes of each director are a work in progress-->
+    <!--But, getting them filled in now will save work once support is updated-->
+	<key>directors</key>
+	<array>
+		<dict>
+			<photo></photo>
+            <role></role>
+			<name>Director 1</name>
+		</dict>
+		<dict>
+			<photo></photo>
+            <role></role>
+			<name>Director 2</name>
+		</dict>
+	</array>
+    <!--Support for the photo and role attributes of each producer are a work in progress-->
+    <!--But, getting them filled in now will save work once support is updated-->
+	<key>producers</key>
+	<array>
+		<dict>
+			<photo></photo>
+            <role></role>
+			<name>Producer 1</name>
+		</dict>
+		<dict>
+			<photo></photo>
+            <role></role>
+			<name>Producer 2</name>
+		</dict>
+	</array>
+    <!--Support for the photo and role attributes of each writer are a work in progress-->
+    <!--But, getting them filled in now will save work once support is updated-->
+	<key>screenwriters</key>
+	<array>
+		<dict>
+			<photo></photo>
+            <role></role>
+			<name>Writer 1</name>
+		</dict>
+		<dict>
+			<photo></photo>
+            <role></role>
+			<name>Writer 2</name>
+		</dict>
+	</array>
+	<key>studio</key>
+	<string>Corbin Fisher</string>
+    <!--
+        For the collection, if you are only placing each movie in a single collection, then replace 
+        the <array></array> section below the <key>collection</key> with a simple <string>Collection 1</string>
+    -->
+	<key>collection</key>
+    <array>
+        <dict>
+            <name>Collection 1</name>
+        </dict>
+	</array>
+</dict>
+</plist>
