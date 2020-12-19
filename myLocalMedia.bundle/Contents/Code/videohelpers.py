@@ -128,12 +128,12 @@ class MP4VideoHelper(VideoHelper):
     try:
       countryname = tags["ctry"][0]
       if len(countryname) > 0:
-        item.tags_country = countryname
+        item.country = countryname
       else:
         try:
           countryname = tags["----:com.apple.iTunes:COUNTRY"][0]
           if len(countryname) > 0:
-            item.tags_country = countryname
+            item.country = countryname
         except: pass
     except: pass
 

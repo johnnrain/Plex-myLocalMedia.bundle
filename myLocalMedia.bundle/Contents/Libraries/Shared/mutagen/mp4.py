@@ -279,6 +279,7 @@ class MP4Tags(DictProxy, Metadata):
     * 'soco' -- composer sort order
     * 'sosn' -- show sort order
     * 'tvsh' -- show name
+    * 'ctry' -- country
 
     Boolean values:
 
@@ -344,7 +345,7 @@ class MP4Tags(DictProxy, Metadata):
         order = [b"\xa9nam", b"\xa9ART", b"\xa9wrt", b"\xa9alb",
                  b"\xa9gen", b"gnre", b"trkn", b"disk",
                  b"\xa9day", b"cpil", b"pgap", b"pcst", b"tmpo",
-                 b"\xa9too", b"----", b"covr", b"\xa9lyr"]
+                 b"\xa9too", b"----", b"covr", b"\xa9lyr", b"ctry"]
         order = dict(zip(order, range(len(order))))
         last = len(order)
         # If there's no key-based way to distinguish, order by length.
@@ -672,6 +673,7 @@ class MP4Tags(DictProxy, Metadata):
         b"covr": (__parse_cover, __render_cover),
         b"purl": (__parse_text, __render_text, 0),
         b"egid": (__parse_text, __render_text, 0),
+        b"ctry": (__parse_text, __render_text),
     }
 
     # the text atoms we know about which should make loading fail if parsing
