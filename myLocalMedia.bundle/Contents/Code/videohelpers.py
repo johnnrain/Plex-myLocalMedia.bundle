@@ -74,6 +74,12 @@ class MP4VideoHelper(VideoHelper):
       item.title_sort = title_sort
     except: pass
 
+    # Original Title
+    try:
+      original_title = tags["sonm"][0]
+      item.title_sort = title_sort
+    except: pass
+
     # Summary (long or short)
     try:
       try:
@@ -115,6 +121,20 @@ class MP4VideoHelper(VideoHelper):
       rating = tags["----:com.apple.iTunes:iTunEXTC"][0].split('|')[1]
       if len(rating) > 0:
         item.content_rating = rating
+    except: pass
+
+    # Country
+    try:
+      country = tags["----:com.apple.iTunes:COUNTRY"][0]
+      if len(country) > 0:
+        item.tags_country = country
+    except: pass
+
+    # Original Title
+    try:
+      origfilename = tags["----:com.apple.iTunes:ORIGFILENAME"][0]
+      if len(origfilename) > 0:
+        item.original_title = origfilename
     except: pass
 
     # Look for iTunes-style metadata, use regular tags otherwise
@@ -199,4 +219,20 @@ class MP4VideoHelper(VideoHelper):
         item.collections.clear()
         for album in album_list:
           item.collections.add(album.strip())
+    except: pass
+
+    # Producers
+    try:
+      if pl and 'producers' in pl and pl['producers']:
+        pl_producers = []
+        for producer in pl['producers']:
+          producer_name = producer['name']
+          if writer_name:
+            pl_producers.append(producer_name)
+        # if there are none-empty writer names present use them
+        if pl_producers:
+          item.producers.clear()
+          for producer_name in pl_producers:
+            producer = item.producers.new()
+            producer.name = producer_name
     except: pass
