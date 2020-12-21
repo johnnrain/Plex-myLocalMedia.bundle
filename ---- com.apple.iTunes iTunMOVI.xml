@@ -81,7 +81,7 @@
 		</dict>
 	</array>
 	<key>studio</key>
-	<string>Corbin Fisher</string>
+	<string>Studio Name</string>
     <!--
         For the collection, if you are only placing each movie in a single collection, then replace 
         the <array></array> section below the <key>collection</key> with a simple <string>Collection 1</string>
